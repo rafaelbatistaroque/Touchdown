@@ -20,6 +20,7 @@ struct FooterView: View {
                 .layoutPriority(1)
 
         }
+        .padding()
     }
 }
 
