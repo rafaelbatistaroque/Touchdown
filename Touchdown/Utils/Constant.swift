@@ -1,9 +1,10 @@
 import SwiftUI
 
 //MARK: Data
-let data: (players: [Player], categories: [Category]) = (
+let data: (players: [Player], categories: [Category], products: [Product]) = (
     Bundle.main.decode("player.json"),
-    Bundle.main.decode("category.json")
+    Bundle.main.decode("category.json"),
+    Bundle.main.decode("product.json")
 )
 //MARK: Color
 let colors = (
