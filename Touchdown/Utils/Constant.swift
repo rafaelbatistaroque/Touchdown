@@ -5,13 +5,17 @@ let data: (
     players: [Player],
     categories: [Category],
     products: [Product],
-    brands: [Brand]) = (
+    brands: [Brand]
+
+) = (
 
     Bundle.main.decode("player.json"),
     Bundle.main.decode("category.json"),
     Bundle.main.decode("product.json"),
     Bundle.main.decode("brand.json")
 )
+
+let samplePruduct: Product = data.products[0]
 
 //MARK: Color
 let colors = (
