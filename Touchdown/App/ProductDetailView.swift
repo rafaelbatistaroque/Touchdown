@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct ProductDatailView: View {
-  
-  var product: Product
-  
+struct ProductDetailView: View {
+
+	@EnvironmentObject var shop: Shop
+
   var body: some View {
     VStack(alignment: .leading, spacing: 5, content: {
       NavigationBarDetailView()
@@ -24,7 +24,7 @@ struct ProductDatailView: View {
 					.padding(.bottom, 10)
 
         ScrollView(.vertical, showsIndicators: false, content: {
-          Text(samplePruduct.description)
+					Text(shop.selectedProduct?.description ?? samplePruduct.description)
             .font(.system(.body, design: .rounded))
             .foregroundColor(.gray)
             .multilineTextAlignment(.leading)
@@ -44,9 +44,9 @@ struct ProductDatailView: View {
     .ignoresSafeArea(.all, edges: .all)
     .background(
       Color(
-        red: product.red,
-        green: product.green,
-        blue: product.blue
+				red: shop.selectedProduct?.red ?? samplePruduct.red,
+        green: shop.selectedProduct?.green ?? samplePruduct.green,
+        blue: shop.selectedProduct?.blue ?? samplePruduct.blue
       ).ignoresSafeArea(.all, edges: .all)
     )
   }
@@ -54,7 +54,8 @@ struct ProductDatailView: View {
 
 struct ProductDatailView_Previews: PreviewProvider {
   static var previews: some View {
-    ProductDatailView(product: samplePruduct)
+    ProductDetailView()
+			.environmentObject(Shop())
       .previewLayout(.fixed(width: 375, height: 812))
   }
 }

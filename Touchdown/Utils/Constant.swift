@@ -31,6 +31,9 @@ let layouts = (
 )
 
 //MARK: UX
+let feedbackMedium = UIImpactFeedbackGenerator(style: .medium)
+
+
 //MARK: API
 //MARK: Font
 //MARK: String
